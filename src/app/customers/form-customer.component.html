@@ -1,0 +1,145 @@
+<div class="container" style="padding-top: 10px;">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark" *ngIf="!customer.customerID else elseTitle">Crear Cliente</h1>
+
+                    <ng-template #elseTitle>
+                        <h1 class="m-0 text-dark">Actualizar Cliente</h1>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container" style="padding-top: 10px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">
+                            <form>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="companyName" class="col-form-label col-sm-4">Nombre Empresa</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.companyName" name="companyName" id="companyName" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.companyName">
+                                                    <span class="text text-danger">{{customerError.companyName}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="contactName" class="col-form-label col-sm-4">Nombre Contacto</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.contactName" name="contactName" id="contactName" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.contactName">
+                                                    <span class="text text-danger">{{customerError.contactName}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="contactTitle" class="col-form-label col-sm-4">Titulo del Contacto</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.contactTitle" name="contactTitle" id="contactTitle" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.contactTitle">
+                                                    <span class="text text-danger">{{customerError.contactTitle}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="address" class="col-form-label col-sm-2">Direccion</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.address" name="address" id="address" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.address">
+                                                    <span class="text text-danger">{{customerError.address}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="city" class="col-form-label col-sm-2">Ciudad</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.city" name="city" id="city" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.city">
+                                                    <span class="text text-danger">{{customerError.city}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="region" class="col-form-label col-sm-2">Region</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.region" name="region" id="region" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.region">
+                                                    <span class="text text-danger">{{customerError.region}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="postalCode" class="col-form-label col-sm-2">Codigo Postal</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.postalCode" name="postalCode" id="postalCode" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.postalCode">
+                                                    <span class="text text-danger">{{customerError.postalCode}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="country" class="col-form-label col-sm-2">Pais</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.country" name="country" id="country" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.country">
+                                                    <span class="text text-danger">{{customerError.country}}</span>
+                                                </div>
+                                            </div>
+                                
+                                            <div class="form-group">
+                                                <label for="phone" class="col-form-label col-sm-2">Telefono</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.phone" name="phone" id="phone" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.phone">
+                                                    <span class="text text-danger">{{customerError.phone}}</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="fax" class="col-form-label col-sm-2">Fax</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" [(ngModel)]="customer.fax" name="fax" id="fax" >
+                                                </div>
+                                                <div class="col-sm-8" *ngIf="customerError?.fax">
+                                                    <span class="text text-danger">{{customerError.fax}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p></p>
+                                <button class="btn btn-success" style="margin-left: 15px;" role="button" id ="createCustomer" (click)='createCustomer()' *ngIf="!customer.customerID else elseBlock">Guardar</button>
+                    
+                                <ng-template #elseBlock>
+                                    <button class="btn btn-success" style="margin-left: 15px;" role="button" id ="updateCustomer" (click)='updateCustomer()'>Guardar</button>
+                                </ng-template>
+                                
+                                <button class="btn btn-primary float-right"  style="margin-left: 15px;" [routerLink]="['/customers']">Regresar</button><p></p>
+                                                                      
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

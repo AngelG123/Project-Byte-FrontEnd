@@ -1,0 +1,43 @@
+<div class="container" style="padding-top: 10px;">
+
+    <h1> {{ title }}</h1>
+    <p></p>
+    <button class="btn btn-primary" type="button" [routerLink]="['/customers/form']">Crear Cliente</button>
+    <p></p>
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">Nombre Empresa</th>
+            <th scope="col">Nombre Contacto</th>
+            <th scope="col">Titulo Contacto</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Region</th>
+            <th scope="col">Codigo Postal</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fax</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 5, currentPage: page }">
+            <th scope="row"> {{customer.companyName}}</th>
+            <td>{{ customer.contactName }}</td>
+            <td>{{ customer.contactTitle }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.region }}</td>
+            <td>{{ customer.postalCode }}</td>
+            <td>{{ customer.country }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.fax }}</td>
+            <td> <button type="button" name="button" class="btn btn-primary" [routerLink]="['/customers/form', customer.customerID]">Editar</button> </td>
+            <td> <button type="button" class="btn btn-danger" (click)='deleteCustomer(customer)'>Eliminar</button> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+</div>
